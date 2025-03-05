@@ -18,7 +18,7 @@ COPY rpi-rgb-led-matrix /app/rpi-rgb-led-matrix
 
 # Compilar e instalar la librería
 RUN cd /app/rpi-rgb-led-matrix && \
-    make clean && make -j4 && sudo make install && \
+    make clean && make -j4 && \
     cd bindings/python && \
     python3 setup.py install
     
