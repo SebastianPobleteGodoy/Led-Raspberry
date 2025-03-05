@@ -20,7 +20,7 @@ matrix = RGBMatrix(options=options)
 img_path = "/srv/ledram/current.png"
 
 # 🔹 Inicia Chromium en modo kiosk para mostrar la web
-subprocess.Popen(["chromium-browser","--no-sandbox",  "--kiosk", "--disable-infobars",
+subprocess.Popen(["chromium-browser", "--no-sandbox", "--kiosk", "--disable-infobars",
                   "--disable-session-crashed-bubble", "https://citylabbiobio.cl/visor/visor/"])
 
 # 🔹 Captura la pantalla y la actualiza en los paneles LED en un bucle infinito

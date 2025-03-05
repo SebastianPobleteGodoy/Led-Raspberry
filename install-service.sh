@@ -8,8 +8,7 @@ fi
 # set pwd to current directory
 cd "$(dirname "$0")"
 
-#limpia el contenido del directorio de trabajo
-rm -rf /app*
+# NO BORRAR /app/
 rm -rf /srv/*
 
 # Configura un directorio `/app` como buffer de video

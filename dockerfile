@@ -20,6 +20,10 @@ RUN git clone --recursive https://github.com/hzeller/rpi-rgb-led-matrix.git /app
     sudo make install && \
     cd bindings/python && \
     python3 setup.py install
+    
+RUN apt-get update && apt-get install -y lsb-release
+RUN apt-get update && apt-get install -y scrot
+
 
 # Copiar los archivos del proyecto
 COPY led-driver.py /srv/subsystem/led-driver.py
