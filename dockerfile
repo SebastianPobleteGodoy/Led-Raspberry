@@ -22,6 +22,7 @@ RUN git clone --recursive https://github.com/hzeller/rpi-rgb-led-matrix.git /app
     python3 setup.py install
 
 # Copiar los archivos del proyecto
+COPY led-driver.py /srv/subsystem/led-driver.py
 COPY led-driver.py /app/led-driver.py
 COPY autorun.sh /app/autorun.sh
 COPY init.png /app/init.png

@@ -19,9 +19,6 @@ sudo apt-get install python3-dev python3-pillow -y > /dev/null 2>&1
 verificar_codigo_retorno $?
 
 echo -n "Entrando al repositorio "
-# Pedir al usuario que ingrese un valor
-echo "Usuario:"
-read valor
 cd rpi-rgb-led-matrix/bindings/python 
 
 # Verificar el código de retorno llamando a la función

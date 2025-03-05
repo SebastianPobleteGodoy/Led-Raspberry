@@ -9,15 +9,15 @@ fi
 cd "$(dirname "$0")"
 
 #limpia el contenido del directorio de trabajo
-rm -rf /srv/ledram/*
+rm -rf /app*
 rm -rf /srv/*
 
-# Configura un directorio `/srv/ledram` como buffer de video
+# Configura un directorio `/app` como buffer de video
 sed -i -e '/srv/d' /etc/fstab
-sed -i -e '$a/tmpfs  /srv/ledram  tmpfs  rw,nosuid,nodev,size=32m   0  0' /etc/fstab
+sed -i -e '$a/tmpfs  /app  tmpfs  rw,nosuid,nodev,size=32m   0  0' /etc/fstab
 
 # Crea directorio donde se almacena el buffer de video
-mkdir /srv/ledram
+mkdir /app
 
 # Desocupa el tercer procesador para ser usado exclusivamente por el sub-proceso de renderizado
 sed -i -e 's/ isocpus=3//g' /boot/cmdline.txt
@@ -27,10 +27,10 @@ sed -i -e 's/$/ isocpus=3/' /boot/cmdline.txt
 cp -R rgbmatrix /srv/rgbmatrix
 
 #copia el sub-sistema de renderizado
-mkdir /srv/subsystem
+mkdir /app
 cp -rf init.png /srv
-cp -rf led-driver.py /srv/subsystem/
-chmod +x /srv/subsystem/led-driver.py  
+cp -rf led-driver.py /app/
+chmod +x /app/led-driver.py  
 
 #Crea el servicio
 cp -rf led-driver.service /etc/systemd/system/led-driver.service

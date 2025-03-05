@@ -6,9 +6,11 @@ services:
     build: .
     restart: always
     privileged: true
+    network_mode: "host"
     environment:
       - DISPLAY=:0
     volumes:
       - /srv/ledram:/srv/ledram  
     devices:
-      - "/dev/fb0:/dev/fb0"  
+      - "/dev/fb0:/dev/fb0"
+      - "/dev/mem:/dev/mem"
