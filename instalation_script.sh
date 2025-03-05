@@ -49,4 +49,3 @@ while [ $tiempo -gt 0 ]; do
 done
 
 echo "¡Apagando el equipo ahora!"
-shutdown -h now

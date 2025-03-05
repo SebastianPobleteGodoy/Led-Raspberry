@@ -40,6 +40,6 @@ systemctl daemon-reload
 systemctl unmask led-driver.service
 systemctl enable led-driver.service
 
-# 🔹 Mensaje de salida
+# Mensaje de salida
 echo "Debe reiniciar la Raspberry para que el servicio pueda iniciarse"
 echo "Luego, cualquier cambio en la web se reflejará automáticamente en los paneles LED."

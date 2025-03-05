@@ -22,7 +22,7 @@ echo -n "Entrando al repositorio "
 # Pedir al usuario que ingrese un valor
 echo "Usuario:"
 read valor
-cd /home/$valor/rpi-rgb-led-matrix/bindings/python 
+cd rpi-rgb-led-matrix/bindings/python 
 
 # Verificar el código de retorno llamando a la función
 verificar_codigo_retorno $?
@@ -34,13 +34,6 @@ sudo make install-python PYTHON=$(command -v python3) > /dev/null 2>&1
 # Verificar el código de retorno llamando a la función
 verificar_codigo_retorno $?
 
-echo -n "Clonando repositorio FIC "
-cd /home/$valor/
-git clone https://github.com/diegoalrv/pantallas-led > /dev/null 2>&1 
-cd pantallas-led
-
-# Verificar el código de retorno llamando a la función
-verificar_codigo_retorno $?
 
 echo -n "Instalando docker"
 curl -fsSL https://get.docker.com -o get-docker.sh
