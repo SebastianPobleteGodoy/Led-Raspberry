@@ -13,11 +13,12 @@ RUN apt-get update && apt-get install -y \
     chromium-browser scrot \
     && rm -rf /var/lib/apt/lists/*
 
-# Clonar y compilar rpi-rgb-led-matrix dentro del contenedor
-RUN git clone --recursive https://github.com/hzeller/rpi-rgb-led-matrix.git /app/rpi-rgb-led-matrix && \
-    cd /app/rpi-rgb-led-matrix && \
-    make -j4 && \
-    sudo make install && \
+# Copiar la carpeta `rpi-rgb-led-matrix` desde el host al contenedor
+COPY rpi-rgb-led-matrix /app/rpi-rgb-led-matrix
+
+# Compilar e instalar la librería
+RUN cd /app/rpi-rgb-led-matrix && \
+    make clean && make -j4 && sudo make install && \
     cd bindings/python && \
     python3 setup.py install
     
