@@ -12,6 +12,8 @@ RUN apt-get update && apt-get install -y \
     libwebp-dev libjpeg-dev libpng-dev libtiff5-dev libfreetype6-dev \
     chromium-browser scrot \
     && rm -rf /var/lib/apt/lists/*
+    
+RUN apt-get update && apt-get install -y cython3
 
 # Copiar la carpeta `rpi-rgb-led-matrix` desde el host al contenedor
 COPY rpi-rgb-led-matrix /app/rpi-rgb-led-matrix
