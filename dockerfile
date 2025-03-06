@@ -1,8 +1,8 @@
 # Usa una imagen base optimizada para Raspberry Pi
 FROM balenalib/raspberrypi3-debian:latest
 
-# Variables de entorno para evitar prompts
-ENV DEBIAN_FRONTEND=noninteractive
+# Configurar el directorio de trabajo dentro del contenedor
+WORKDIR /app
 
 # Instalar dependencias del sistema
 RUN apt-get update && apt-get install -y \
@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y \
     chromium-browser scrot \
     lsb-release \
     && rm -rf /var/lib/apt/lists/*
-
+RUN apt-get update && apt-get install -y cython3
 # (Opcional) Asegurar que pip, setuptools y wheel estén actualizados
 RUN pip3 install --upgrade pip setuptools wheel
 
